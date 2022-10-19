@@ -2,7 +2,9 @@
 a) Atualizar    --> apt    --> sources.list
 b) Repositórios --> apt    --> sources. list
    (=Diretório)
-c) PESQUISAR: O QUE É PPAs? 
+c) PESQUISAR: O QUE É PPAs?
+Um Personal Package Archive (PPA), em português Arquivo de Pacote Pessoal, é um repositório de software especial para carregar (upload) pacotes de fontes a serem compilados e publicados como um repositório APT ou Launchpad.
+
 d) Instalar atualização    --> apt
 
 #02_ Instalação dos Convidados do VirtualBox
