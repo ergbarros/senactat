@@ -1,0 +1,43 @@
+#01_MintUpdate
+a) Atualizar    --> apt    --> sources.list
+b) Repositórios --> apt    --> sources. list
+   (=Diretório)
+c) PESQUISAR: O QUE É PPAs?
+d) Instalar atualização    --> apt
+
+#02_ Instalação dos Convidados do VirtualBox
+a)  Dispositivos
+      inserir imagem do CD dos convidados
+
+#03_ Atualizando via linha de comando   
+    PESQUISAR: O QUE É BASH?
+    PESQUISAR: O QUE É SHELL?
+    PESQUISAR: O QUE É APT-GET?
+	PESQUISAR: O QUE É SUDO?
+	
+	primeiros comando
+	
+	senac@edinaldo.pbarros-vitualBox:~$ sudo apt update pressione enter
+	sudo apt update  --> MintUpdate Atualizar
+	
+	senac@edinaldo.pbarros-vitualBox:~$ sudo apt upgrade pressione enter
+  sudo apt upgrade --> MintUpdate Instalar
+	
+  senac@edinaldo.pbarros-vitualBox:~$ sudo apt full-upgrade pressione enter
+	sudo apt full-upgrade --> 
+	
+	senac@edinaldo.pbarros-vitualBox:~$ sudo apt dist update pressione enter
+	sudo apt dist update --> 
+    
+	senac@edinaldo.pbarros-vitualBox:~$ sudo apt autoremove pressione enter
+	sudo apt autoremove --> 
+    
+	senac@edinaldo.pbarros-vitualBox:~$ sudo apt autoclean pressione enter
+  sudo apt autoclean --> 
+	
+	senac@edinaldo.pbarros-vitualBox:~$ sudo apt clean pressione enter
+	sudo apt clean --> 
+    
+	senac@edinaldo.pbarros-vitualBox:~$ history pressione enter
+  history --> 
+
