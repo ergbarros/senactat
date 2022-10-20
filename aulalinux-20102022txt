@@ -1,0 +1,37 @@
+Objetivo da atividade de hoje 20/10/2022
+
+Segunda etapa: caso queira atualizar o sistema:
+
+#01_Utilizar o MintUpdate
+#02_Utilizar o Terminald - apt
+Atalho: Crtl + Alt + T
+sudo apt update
+sudo apt upgrade
+sudo apt full-upgrade
+sudo apt dist-upgrade
+sudo apt autoremove
+sudo apt autoclean
+
+Terceira etapa: Instalar Software(linux)
+Microsoft - .EXE ou MSI
+
+Linux MInt: 15 - .DEB
+
+Instalartalar
+Google Chrome - 64 bits .Deb
+Opera Linux
+
+Pesquisar no linux
+Gdebi --> Dependências
+Central de Aplicativos
+Terminal-apt
+sudo apt install
+senac@senac-VirtualBox:~$ sudo apt install git vim pse
+pressionar tab 2 vezes
+
+sudo apt install git vim psensor
+pressionar enter
+
+
+
+
