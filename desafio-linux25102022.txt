@@ -8,7 +8,7 @@
 	_a - Google Chrome; -OK
 	_b - Opera; - OK
 	_c - Microsoft Edge;
-	_d - Vivaldi;
+	_d - Vivaldi; -OK
 	_e - Tor;
 	_f - Brave.
 	
