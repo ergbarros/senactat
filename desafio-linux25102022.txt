@@ -9,7 +9,7 @@
 	_b - Opera; - OK
 	_c - Microsoft Edge; - OK
 	_d - Vivaldi; - OK
-	_e - Tor; -OK
+	_e - Tor; -
 	_f - Brave. - OK
 	
 #02_ Instalação do suporte ao TTF (TrueType Fonts) - OK
@@ -24,12 +24,12 @@
 	_g - KolourPaint (Gerenciador de Aplicativo) -OK
 
 #04_ Instalação dos Editores de Texto para Desenvolvimento
-	_a - Visual Studio Code for Linux (Recomendo via Gdebi) 
+	_a - Visual Studio Code for Linux (Recomendo via Gdebi) - OK 
 	_b - NotepadQQ for Linux (Gerenciador de Aplicativo) -OK
-	_c - Atom for Linux (Recomendo via Gdebi)
+	_c - Atom for Linux (Recomendo via Gdebi) - OK
 	_d - Sublime for Linux (Recomendo via Gdebi) - OK
 	 
 #05_ Instalação de Reprodutores de Música Editor de Áudio e Vídeo
 	_a - VLC VideoOnLan for Linux (Gerenciador de Aplicativo) - OK
-	_b - Audacity (Gerenciador de Aplicativo)
-	_c - Kdenlive (Recomendo AppImagem)
+	_b - Audacity (Gerenciador de Aplicativo) - OK
+	_c - Kdenlive (Recomendo AppImagem) -OK
