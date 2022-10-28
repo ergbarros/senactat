@@ -24,7 +24,7 @@
 	_g - KolourPaint (Gerenciador de Aplicativo)
 
 #04_ Instalação dos Editores de Texto para Desenvolvimento
-	_a - Visual Studio Code for Linux (Recomendo via Gdebi) -OK
+	_a - Visual Studio Code for Linux (Recomendo via Gdebi) 
 	_b - NotepadQQ for Linux (Gerenciador de Aplicativo)
 	_c - Atom for Linux (Recomendo via Gdebi)
 	_d - Sublime for Linux (Recomendo via Gdebi)
