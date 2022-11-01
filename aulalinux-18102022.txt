@@ -29,7 +29,7 @@ senac@edinaldo.pbarros-vitualBox:~$ sudo apt full-upgrade pressione enter
 sudo apt full-upgrade --> 
 	
 senac@edinaldo.pbarros-vitualBox:~$ sudo apt dist update pressione enter
-sudo apt dist update --> 
+sudo apt dist upgrade --> 
     
 senac@edinaldo.pbarros-vitualBox:~$ sudo apt autoremove pressione enter
 sudo apt autoremove --> 
