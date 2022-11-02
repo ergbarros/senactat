@@ -1,0 +1,51 @@
+Objetivo da atividade de hoje 01/11/2022
+
+Segunda etapa: caso queira atualizar o sistema:
+
+#01_Utilizar o MintUpdate
+#02_Utilizar o Terminald - apt
+Atalho: Crtl + Alt + T
+sudo apt update ok
+sudo apt upgrade ok
+sudo apt full-upgrade ok
+sudo apt dist-upgrade ok
+sudo apt autoremove ok
+sudo apt autoclean ok
+
+1- github: - diretório = repositório
+2- github: Microsoft = GNU/linux Open Source
+                              (case sensitive)
+
+3- Pesquisar: 
+1- Markdown - extensão: *.md? Linguagem
+2- README.md?
+
+4- Pesquisar:
+comando: git - editor: VSCode
+                       ((Visual Studio Code)
+         git - Clonar
+								
+sudo apt update
+sudo apt install git vim
+
+senac@senac-VirtualBox:~/Área de Trabalho$ sudo apt install git vim
+[sudo] senha para senac:          
+Lendo listas de pacotes... Pronto
+Construindo árvore de dependências... Pronto
+Lendo informação de estado... Pronto        
+git já é a versão mais recente (1:2.34.1-1ubuntu1.5).
+vim já é a versão mais recente (2:8.2.3995-1ubuntu2.1).
+0 pacotes atualizados, 0 pacotes novos instalados, 0 a serem removidos e 2 não atualizados.
+senac@senac-VirtualBox:~/Área de Trabalho$ 
+
+git clone
+
+senac@senac-VirtualBox:~/Área de Trabalho$ git clone https://github.com/ergbarros/senactat    
+Cloning into 'senactat'...
+remote: Enumerating objects: 77, done.
+remote: Counting objects: 100% (77/77), done.
+remote: Compressing objects: 100% (75/75), done.
+remote: Total 77 (delta 41), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (77/77), 573.96 KiB | 3.32 MiB/s, done.
+Resolving deltas: 100% (41/41), done.
+								
