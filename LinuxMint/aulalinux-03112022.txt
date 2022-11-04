@@ -1,0 +1,42 @@
+03/11/2022
+Terminal: Crtl + Alt + T - Bash
+senac = seu usuário
+@ = concaternar
+senac  =  nome do computador
+----------------------------
+~  = alias = faz referêcia ao seu Home
+$  = Referência ao usuário sem direito
+#  = Super usuário ---> root: sudo
+------------------------------------
+digitar no terminal= sudo -i ( interativo ) tecla enter
+muda para comando ---- root@senac (super usuário)
+root@senac-VirtualBox:~#
+sudo -i()
+
+root@senac-VirtualBox:~# 
+exit = (sair) tem atalho Crtl = D)
+
+history ( Histórico de comandos )
+! = executar o comando na linha do history
+comando clear ( limpar a tela, Atalho + L)
+--------------------------------------
+pedir ajuda no linux
+comando apt (ajuda simples)
+comando apt --help ( ajuda resumida do comando)
+comando man apt (manual do comando) 
+para sair do manual digitar q (quit)
+---------------------------------------
+site de pesquisa de comando
+www.guiafoca.org - pt br
+www.ss64.com/bash/ em EN ingles
+---------------------------------------
+
+Comando de diretório e Arquivo
+git clone( clonar repositório do github)
+
+comando Ls ( lista arquivo e diretório)
+comando ls -lh ( modo lista detalhada)
+cd (muda diretório)
+TAB (Tabular) (obj auto completar)
+
+comando cd .. (voltar um diretorio)
