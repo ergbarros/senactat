@@ -12,9 +12,11 @@ de Microsoft Windows )
 1 #Primeira etapa:
 Windows 
 NTFS/FAT32
+Resumidamente, o NTFS é ideal para HDs internos que lidam com o Windows, enquanto o exFAT é a melhor opção para pen drives e HDs externos. O FAT32 é útil para lidar com dispositivos que não suportam os outros sistemas de arquivos
 
 GNU/Linux
 EXT4
+O ext4 é a evolução do conhecido ext3, hoje o file-system padrão do GNU/Linux. O Linux oferece suporte a uma infinidade de file-systens e em uma instalação normal do sistema, os file-systens mais famosos são o reiserfs e o ext3.
 
 Particionamento
 
