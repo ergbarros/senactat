@@ -1,0 +1,43 @@
+ Objetivo da atividade de hoje 17/11/22
+ 
+ Primeira etapa: Finalização dos conceitos Básicos de:
+ #01_Bash/Shell
+ #02_comando de manipulação de arquivos e diretórios
+ #03_comandos de redes (Linux Mint e Windows XP )
+ #04_Git e Github
+ 
+ Segunda Etapa: 
+ #comando de mover ( Remonear)
+ mv ORIGEM DESTINO
+ 
+ #COMANDO DE COPIAR
+ cp -v ORIGEM DESTINO
+ 
+ #COMANDO DE IMPRIMIR MENSAGEM NA TELA
+ echo SENAC Tatuapé
+ echo SENAC Tatuapé > SENAC.txt
+ 
+ #COMANDO PARA LISTAR O CONTEÚDO DO ARQUIVO
+ cat
+ cat -n //etc/service
+ 
+ #COMANDO PARA LISTAR O CONTEÚDO DO ARQUIVOS 
+ MAIS EU POSSO ESCOLHER AS LINHAS
+ head /etc/services
+ tail /etc/services
+ head -n20 /etc/services
+ tail -n20 /etc/services
+ 
+ #DESAFIO DO PROF. RAMOS (O MELHOR!!!!!!)
+ 
+cat -n /etc/services | head -n20
+
+DESAFIO
+
+EU RAMOS QUERO LISTAR O CONTEÚDO DO ARQUIVO EM:
+ETC/SERVICES DAS LINHAS:100 ATÉ 200
+361 = 1 ATÉ 99: EXCLUIR
+100 ATÉ 200: MANTER (VISUALIZAR)
+201 ATE 361 EXCLUIR
+
+cat -n /etc/services | head -n200 | tail -n101

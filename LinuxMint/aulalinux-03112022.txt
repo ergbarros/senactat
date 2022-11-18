@@ -40,9 +40,3 @@ cd (muda diretório)
 TAB (Tabular) (obj auto completar)
 
 comando cd .. (voltar um diretorio)
-comando git pull (verificar mundanças no github)
-comando git add . (aceitar mudanças locais)
-comando git commit -m "atualizacao"
-comando git push (enviar para github)
-token
-git config --global user.email "you@example.com"
