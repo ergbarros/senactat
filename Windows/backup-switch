@@ -1,0 +1,448 @@
+!
+! Last configuration change at 00:03:11 UTC Fri Apr 14 2023 by edinaldo
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname rt-g02
+!
+boot-start-marker
+boot-end-marker
+!
+!
+security passwords min-length 8
+enable secret 4 D.ypdVr3FRhEsh3TDjrkDyDFbL3RbUr48j5o40PFfTA
+!
+no aaa new-model
+!
+ip cef
+!
+!
+!
+ip dhcp excluded-address 172.16.22.1 172.16.22.100
+ip dhcp excluded-address 172.16.22.200 172.16.22.254
+ip dhcp excluded-address 172.16.23.1 172.16.23.100
+ip dhcp excluded-address 172.16.23.200 172.16.23.254
+ip dhcp excluded-address 172.16.24.1 172.16.24.100
+ip dhcp excluded-address 172.16.24.200 172.16.24.254
+ip dhcp excluded-address 172.16.25.1 172.16.25.100
+ip dhcp excluded-address 172.16.25.200 172.16.25.254
+ip dhcp excluded-address 172.16.21.1 172.16.21.100
+ip dhcp excluded-address 172.16.21.200 172.16.21.254
+!
+ip dhcp pool vlan 21
+ network 172.16.21.0 255.255.255.0
+ default-router 172.16.21.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan 22
+ network 172.16.22.0 255.255.255.0
+ default-router 172.16.22.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan 23
+ network 172.16.23.0 255.255.255.0
+ default-router 172.16.23.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan 24
+ network 172.16.24.0 255.255.255.0
+ default-router 172.16.24.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan 25
+ network 172.16.25.0 255.255.255.0
+ default-router 172.16.25.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+!
+!
+no ip domain lookup
+ip domain name senac.br
+login block-for 120 attempts 4 within 60
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid CISCO2911BR-SEC/K9 sn TSP1833ABBK
+!
+!
+username maria privilege 15 secret 4 D.ypdVr3FRhEsh3TDjrkDyDFbL3RbUr48j5o40PFfTA
+username joao privilege 15 secret 4 D.ypdVr3FRhEsh3TDjrkDyDFbL3RbUr48j5o40PFfTA
+username leandro privilege 15 secret 4 D.ypdVr3FRhEsh3TDjrkDyDFbL3RbUr48j5o40PFf                                                                                                                     TA
+username edinaldo privilege 15 secret 4 D.ypdVr3FRhEsh3TDjrkDyDFbL3RbUr48j5o40PF                                                                                                                     fTA
+!
+redundancy
+!
+!
+!
+!
+!
+ip ssh time-out 60
+ip ssh authentication-retries 2
+ip ssh version 2
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ description Interface de Loopback para ID do OSPF
+ ip address 2.2.2.2 255.255.255.255
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.20
+ description Subinterface da VLAN 20
+ encapsulation dot1Q 20
+ ip address 172.16.20.254 255.255.255.0
+!
+interface GigabitEthernet0/0.21
+ description Subinterface da VLAN 21
+ encapsulation dot1Q 21
+ ip address 172.16.21.254 255.255.255.0
+!
+interface GigabitEthernet0/0.22
+ description Subinterface da VLAN 22
+ encapsulation dot1Q 22
+ ip address 172.16.22.254 255.255.255.0
+!
+interface GigabitEthernet0/0.23
+ description Subinterface da VLAN 23
+ encapsulation dot1Q 23
+ ip address 172.16.23.254 255.255.255.0
+!
+interface GigabitEthernet0/0.24
+ description Subinterface da VLAN 24
+ encapsulation dot1Q 24
+ ip address 172.16.24.254 255.255.255.0
+!
+interface GigabitEthernet0/0.25
+ description Subinterface da VLAN 25
+ encapsulation dot1Q 25
+ ip address 172.16.25.254 255.255.255.0
+!
+interface GigabitEthernet0/1
+ description Interface de acesso a Internet do Grupo-02
+ ip address dhcp
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ bandwidth 64
+ ip address 192.168.1.5 255.255.255.252
+ clock rate 64000
+!
+interface Serial0/0/1
+ bandwidth 64
+ ip address 192.168.1.2 255.255.255.252
+!
+router ospf 2
+ router-id 2.2.2.2
+ log-adjacency-changes detail
+ auto-cost reference-bandwidth 10000
+ passive-interface GigabitEthernet0/0
+ passive-interface GigabitEthernet0/1
+ network 172.16.20.0 0.0.0.255 area 0
+ network 172.16.21.0 0.0.0.255 area 0
+ network 172.16.22.0 0.0.0.255 area 0
+ network 172.16.23.0 0.0.0.255 area 0
+ network 172.16.24.0 0.0.0.255 area 0
+ network 172.16.25.0 0.0.0.255 area 0
+ network 192.168.1.0 0.0.0.3 area 0
+ network 192.168.1.4 0.0.0.3 area 0
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+banner motd ^CAVISO: acesso autorizado somente ao grupo 02
+banner motd ^C
+!
+line con 0
+ exec-timeout 5 30
+ password 7 014254577B180301204F
+ logging synchronous
+ login local
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 5 30
+ password 7 101F5B4A250417050D07
+ logging synchronous
+ login local
+ transport input ssh
+!
+scheduler allocate 20000 1000
+!
+end
+
+rt-g02#
+rt-g02#ssh -l edinaldo 172.16.21.253
+rt-g02#
+rt-g02#ssh -l edinaldo 172.16.20.253
+Password:
+AVISO: acesso autorizado somente a funcionarios
+SW-g02#copy running-config startup-config
+Destination filename [startup-config]?
+Building configuration...
+[OK]
+0 bytes copied in 1.435 secs (0 bytes/sec)
+SW-g02#copy startup-config flash:
+Destination filename [startup-config]?
+%Warning:There is a file already existing with this name
+Do you want to over write? [confirm]
+
+3233 bytes copied in 0.058 secs (55741 bytes/sec)
+SW-g02#dir flash:
+Directory of flash:/
+
+    2  -rwx        4625   Mar 1 1993 01:56:04 +00:00  startp-config
+    3  -rwx         916   Mar 1 1993 00:28:18 +00:00  vlan.dat
+    4  -rwx        3091   Mar 1 1993 02:55:11 +00:00  OK
+    5  -rwx         916   Mar 1 1993 00:29:19 +00:00  vlan.dat.renamed
+  508  -rwx        3096   Mar 1 1993 03:00:17 +00:00  multiple-fs
+    6  drwx         512   Mar 1 1993 00:12:19 +00:00  c3560-ipservicesk9-mz.122-                                                                                                                     55.SE7
+  503  -rwx        3233   Mar 1 1993 03:00:33 +00:00  startup-config
+  504  -rwx        3130   Mar 1 1993 00:51:58 +00:00  config.text.renamed
+  505  -rwx        3233   Mar 1 1993 00:01:09 +00:00  config.text
+  506  -rwx        3829   Mar 1 1993 00:01:09 +00:00  private-config.text
+  507  -rwx        3831   Mar 1 1993 00:51:58 +00:00  private-config.text.rename                                                                                                                     d
+
+27998208 bytes total (11188736 bytes free)
+SW-g02#show running-config
+Building configuration...
+
+Current configuration : 4585 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname SW-g02
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$MVmt$trs60L2OkHtEXi9SfoMh81
+!
+username maria privilege 15 secret 5 $1$hKpp$q8j4BJjxPJkS5zbCODZqJ0
+username joao privilege 15 secret 5 $1$5Lfs$ueFv99YXKJ31mOqJTkNEL/
+username leandro privilege 15 secret 5 $1$c3RN$cYVfbgp3SWXkZJB/r1O.60
+username edinaldo privilege 15 secret 5 $1$uBHl$NRLUC7s2XeFHBk.bZz7mk1
+!
+!
+no aaa new-model
+system mtu routing 1500
+no ip domain-lookup
+ip domain-name senac.br
+!
+!
+login block-for 120 attempts 4 within 60
+!
+!
+crypto pki trustpoint TP-self-signed-446277120
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-446277120
+ revocation-check none
+ rsakeypair TP-self-signed-446277120
+!
+!
+crypto pki certificate chain TP-self-signed-446277120
+ certificate self-signed 01
+  30820245 308201AE A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 34343632 37373132 30301E17 0D393330 33303130 30303130
+  385A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3434 36323737
+  31323030 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100
+  C76AF662 BA4611E5 0F562293 D4A36EB8 1D67C012 DA2ADD65 32E7F933 73A89D49
+  46C209EC B1B10936 7ACDEC96 DCE27764 8BC75D4E FB2E4B92 10D5E6C2 3993E637
+  8B543AE5 9E79F7E9 DA4D31E8 306968F5 A1995F56 1CD79BB6 4021CCC7 D9D5A463
+  4B9225C8 FDFC6F48 D38FA9B1 EC4B669B DA9D2FFE 76E879CE CAE4353D 7B2C7AFD
+  02030100 01A36F30 6D300F06 03551D13 0101FF04 05300301 01FF301A 0603551D
+  11041330 11820F53 572D6730 322E7365 6E61632E 6272301F 0603551D 23041830
+  16801472 6AD5EE3C CBAA7D4A B0E98870 E4664706 34E9CC30 1D060355 1D0E0416
+  0414726A D5EE3CCB AA7D4AB0 E98870E4 66470634 E9CC300D 06092A86 4886F70D
+  01010405 00038181 00A166D8 7A4B9742 36CDC3D5 020747BF 96CF1A80 5CD85E8B
+  89707821 260D4C3D 743CA825 62697E39 B4CBD44D 09BB4B8E 7EEBBC81 37346BB9
+  02A4F009 5C1B2BDB BCE069F4 2845D7E3 4BCF3FFF 41A20420 4911CF1C 9744D003
+  B74FCC9A C83DBD64 1092F0F0 27B5F34C CC827FCC 57D30EB1 A67734D5 FEE8BA99
+  8CDA54E0 A6FEFF22 AD
+  quit
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+ip ssh time-out 60
+ip ssh authentication-retries 2
+ip ssh version 2
+!
+!
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+ description interface de acesso da vlan 21 maria
+ switchport access vlan 21
+ switchport mode access
+!
+interface FastEthernet0/3
+ description interface de acesso da vlan 22 joao
+ switchport access vlan 22
+ switchport mode access
+!
+interface FastEthernet0/4
+ description interface de acesso da vlan 23 leandro
+ switchport access vlan 23
+ switchport mode access
+!
+interface FastEthernet0/5
+ description interface de acesso da vlan 24 edinaldo
+ switchport access vlan 24
+ switchport mode access
+!
+interface FastEthernet0/6
+ description interface de acesso da vlan 25 wifi
+ switchport access vlan 25
+ switchport mode access
+!
+interface FastEthernet0/7
+ shutdown
+!
+interface FastEthernet0/8
+ shutdown
+!
+interface FastEthernet0/9
+ shutdown
+!
+interface FastEthernet0/10
+ shutdown
+!
+interface FastEthernet0/11
+ shutdown
+!
+interface FastEthernet0/12
+ shutdown
+!
+interface FastEthernet0/13
+ shutdown
+!
+interface FastEthernet0/14
+ shutdown
+!
+interface FastEthernet0/15
+ shutdown
+!
+interface FastEthernet0/16
+ shutdown
+!
+interface FastEthernet0/17
+ shutdown
+!
+interface FastEthernet0/18
+ shutdown
+!
+interface FastEthernet0/19
+ shutdown
+!
+interface FastEthernet0/20
+ shutdown
+!
+interface FastEthernet0/21
+ shutdown
+!
+interface FastEthernet0/22
+ shutdown
+!
+interface FastEthernet0/23
+ shutdown
+!
+interface FastEthernet0/24
+ description Interface de Trunk com o Router 2911 do Grupo-02
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+!
+interface Vlan20
+ description Interface SVI de Gerenciamento do Grupo-02
+ ip address 172.16.20.253 255.255.255.0
+!
+ip default-gateway 172.16.20.254
+ip classless
+ip http server
+ip http secure-server
+!
+!
+!
+!
+!
+banner motd ^CAVISO: acesso autorizado somente a funcionarios^C
+!
+line con 0
+ exec-timeout 5 30
+ password 7 014254577B180301204F
+ logging synchronous
+ login local
+line vty 0 4
+ exec-timeout 5 30
+ password 7 03550958261C24424F0A
+ logging synchronous
+ login local
+ transport input ssh
+line vty 5 15
+ login
+!
+end
