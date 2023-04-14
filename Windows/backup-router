@@ -1,0 +1,219 @@
+!
+! Last configuration change at 00:03:11 UTC Fri Apr 14 2023 by edinaldo
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname rt-g02
+!
+boot-start-marker
+boot-end-marker
+!
+!
+security passwords min-length 8
+enable secret 4 D.ypdVr3FRhEsh3TDjrkDyDFbL3RbUr48j5o40PFfTA
+!
+no aaa new-model
+!
+ip cef
+!
+!
+!
+ip dhcp excluded-address 172.16.22.1 172.16.22.100
+ip dhcp excluded-address 172.16.22.200 172.16.22.254
+ip dhcp excluded-address 172.16.23.1 172.16.23.100
+ip dhcp excluded-address 172.16.23.200 172.16.23.254
+ip dhcp excluded-address 172.16.24.1 172.16.24.100
+ip dhcp excluded-address 172.16.24.200 172.16.24.254
+ip dhcp excluded-address 172.16.25.1 172.16.25.100
+ip dhcp excluded-address 172.16.25.200 172.16.25.254
+ip dhcp excluded-address 172.16.21.1 172.16.21.100
+ip dhcp excluded-address 172.16.21.200 172.16.21.254
+!
+ip dhcp pool vlan 21
+ network 172.16.21.0 255.255.255.0
+ default-router 172.16.21.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan 22
+ network 172.16.22.0 255.255.255.0
+ default-router 172.16.22.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan 23
+ network 172.16.23.0 255.255.255.0
+ default-router 172.16.23.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan 24
+ network 172.16.24.0 255.255.255.0
+ default-router 172.16.24.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+ip dhcp pool vlan 25
+ network 172.16.25.0 255.255.255.0
+ default-router 172.16.25.254
+ dns-server 8.8.8.8 8.8.4.4
+ domain-name senac.br
+!
+!
+!
+no ip domain lookup
+ip domain name senac.br
+login block-for 120 attempts 4 within 60
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+license udi pid CISCO2911BR-SEC/K9 sn TSP1833ABBK
+!
+!
+username maria privilege 15 secret 4 D.ypdVr3FRhEsh3TDjrkDyDFbL3RbUr48j5o40PFfTA
+username joao privilege 15 secret 4 D.ypdVr3FRhEsh3TDjrkDyDFbL3RbUr48j5o40PFfTA
+username leandro privilege 15 secret 4 D.ypdVr3FRhEsh3TDjrkDyDFbL3RbUr48j5o40PFf                                                                                                                     TA
+username edinaldo privilege 15 secret 4 D.ypdVr3FRhEsh3TDjrkDyDFbL3RbUr48j5o40PF                                                                                                                     fTA
+!
+redundancy
+!
+!
+!
+!
+!
+ip ssh time-out 60
+ip ssh authentication-retries 2
+ip ssh version 2
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ description Interface de Loopback para ID do OSPF
+ ip address 2.2.2.2 255.255.255.255
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.20
+ description Subinterface da VLAN 20
+ encapsulation dot1Q 20
+ ip address 172.16.20.254 255.255.255.0
+!
+interface GigabitEthernet0/0.21
+ description Subinterface da VLAN 21
+ encapsulation dot1Q 21
+ ip address 172.16.21.254 255.255.255.0
+!
+interface GigabitEthernet0/0.22
+ description Subinterface da VLAN 22
+ encapsulation dot1Q 22
+ ip address 172.16.22.254 255.255.255.0
+!
+interface GigabitEthernet0/0.23
+ description Subinterface da VLAN 23
+ encapsulation dot1Q 23
+ ip address 172.16.23.254 255.255.255.0
+!
+interface GigabitEthernet0/0.24
+ description Subinterface da VLAN 24
+ encapsulation dot1Q 24
+ ip address 172.16.24.254 255.255.255.0
+!
+interface GigabitEthernet0/0.25
+ description Subinterface da VLAN 25
+ encapsulation dot1Q 25
+ ip address 172.16.25.254 255.255.255.0
+!
+interface GigabitEthernet0/1
+ description Interface de acesso a Internet do Grupo-02
+ ip address dhcp
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ bandwidth 64
+ ip address 192.168.1.5 255.255.255.252
+ clock rate 64000
+!
+interface Serial0/0/1
+ bandwidth 64
+ ip address 192.168.1.2 255.255.255.252
+!
+router ospf 2
+ router-id 2.2.2.2
+ log-adjacency-changes detail
+ auto-cost reference-bandwidth 10000
+ passive-interface GigabitEthernet0/0
+ passive-interface GigabitEthernet0/1
+ network 172.16.20.0 0.0.0.255 area 0
+ network 172.16.21.0 0.0.0.255 area 0
+ network 172.16.22.0 0.0.0.255 area 0
+ network 172.16.23.0 0.0.0.255 area 0
+ network 172.16.24.0 0.0.0.255 area 0
+ network 172.16.25.0 0.0.0.255 area 0
+ network 192.168.1.0 0.0.0.3 area 0
+ network 192.168.1.4 0.0.0.3 area 0
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+banner motd ^CAVISO: acesso autorizado somente ao grupo 02
+banner motd ^C
+!
+line con 0
+ exec-timeout 5 30
+ password 7 014254577B180301204F
+ logging synchronous
+ login local
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 5 30
+ password 7 101F5B4A250417050D07
+ logging synchronous
+ login local
+ transport input ssh
+!
+scheduler allocate 20000 1000
+!
+end
+
